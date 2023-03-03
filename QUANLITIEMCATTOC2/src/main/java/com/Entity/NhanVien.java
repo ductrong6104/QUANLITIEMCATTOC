@@ -1,10 +1,13 @@
 package com.Entity;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,7 +38,8 @@ public class NhanVien {
 	private String email;
 	@Column(name = "HINH")
 	private String hinh;
-	
+	@OneToMany(mappedBy = "quanLiTB", fetch = FetchType.EAGER)
+	private Collection<ThongBao> thongBaos;
 	
 	public NhanVien() {
 	}
@@ -105,6 +109,13 @@ public class NhanVien {
 	public void setHinh(String hinh) {
 		this.hinh = hinh;
 	}
+	public Collection<ThongBao> getThongBaos() {
+		return thongBaos;
+	}
+	public void setThongBaos(Collection<ThongBao> thongBaos) {
+		this.thongBaos = thongBaos;
+	}
+	
 	
 	
 }

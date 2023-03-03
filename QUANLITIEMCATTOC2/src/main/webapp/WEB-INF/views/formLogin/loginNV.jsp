@@ -90,7 +90,7 @@ $(document).ready(function(){
 </head>
 <body>
     <div id="wrapper">
-        <form action="login.htm" id="form-login" method ="POST">
+        <form action="loginNV.htm" id="form-login" method ="POST">
             <h1 class="form-heading">Đăng Nhập BarberShop</h1>
             <div class="form-group">
                 <i class="far fa-user"></i>

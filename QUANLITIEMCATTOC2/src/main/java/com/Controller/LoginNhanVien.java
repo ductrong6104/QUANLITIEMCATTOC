@@ -26,15 +26,15 @@ import com.Entity.TaiKhoanNhanVien;
 
 @Controller
 @Transactional
-public class Login {
+public class LoginNhanVien {
 	@Autowired
 	SessionFactory factory;
-	@RequestMapping(value="login", method=RequestMethod.GET)
+	@RequestMapping(value="loginNV", method=RequestMethod.GET)
 	public String login() {
-		return "formLogin/login";
+		return "formLogin/loginNV";
 	}
 	
-	@RequestMapping(value="login", method=RequestMethod.POST)
+	@RequestMapping(value="loginNV", method=RequestMethod.POST)
 	public String login(ModelMap model, HttpServletRequest request) {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -58,7 +58,7 @@ public class Login {
 			
 		}
 		
-		return "formLogin/login";
+		return "formLogin/loginNV";
 	}
 	
 }
