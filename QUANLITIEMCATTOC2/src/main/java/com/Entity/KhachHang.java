@@ -78,4 +78,7 @@ public class KhachHang {
 		this.email = email;
 	}
 	
+	public String toString() {
+		return getClass().getName() + "[sdt:" + soDienThoai + "ho: " + ho + "ten: " + ten +"ngaysinh: " + ngaySinh + "dia chi:" + diaChi + "email: " + email;
+	}
 }

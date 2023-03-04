@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 	<title>Login Barber</title>
-	<base href = "${pageContext.servletContext.contextPath }/">
+<%-- 	<base href = "${pageContext.servletContext.contextPath }/"> --%>
 	<style>
 		body{
 	    background: url('image\\barbershop_background.jpg');

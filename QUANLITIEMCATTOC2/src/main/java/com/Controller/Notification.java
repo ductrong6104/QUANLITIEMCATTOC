@@ -24,7 +24,7 @@ public class Notification {
 	@Autowired
 	SessionFactory factory;
 	@RequestMapping(value="index", method = RequestMethod.GET)
-	public String index(ModelMap model) {
+	public String index(ModelMap model) {	// khach hang xem thong bao
 		Session session = factory.getCurrentSession();
 		Query query = session.createQuery("from ThongBao");
 		List<ThongBao> list = query.list();

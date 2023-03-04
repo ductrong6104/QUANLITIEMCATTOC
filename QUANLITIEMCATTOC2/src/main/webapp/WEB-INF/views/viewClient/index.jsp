@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 	<title>Insert title here</title>
 	<title>Tài khoản khách hàng</title>
+	<base href="${pageContext.servletContext.contextPath }/">
      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <style>
@@ -101,7 +102,7 @@
 	    </div>
 	    <ul>
 	        <li><a href=""><i class="fa fa-home" aria-hidden="true"></i> Trang Chủ</a></li>
-	        <li><a href=""><i class="fa fa-info" aria-hidden="true"></i> Thông Tin Cá Nhân</a></li>
+	        <li><a role ="button" href="inforPersonal/client/${usernameKH }.htm"><i class="fa fa-info" aria-hidden="true"></i> Thông Tin Cá Nhân</a></li>
 	        <li><a href=""><i class="fa fa-scissors" aria-hidden="true"></i> Dịch Vụ</a></li>
 	        <li><a href=""><i class="fa fa-product-hunt" aria-hidden="true"></i> Sản phẩm</a></li>
 	        <li><a href=""><i class="fa fa-location-arrow" aria-hidden="true"></i> Địa Chỉ</a></li>

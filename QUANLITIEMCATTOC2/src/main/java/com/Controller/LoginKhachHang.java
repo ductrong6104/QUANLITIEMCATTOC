@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.Entity.TaiKhoanKhachHang;
-import com.Entity.TaiKhoanNhanVien;
 
 @Controller
 @Transactional
@@ -38,10 +37,13 @@ public class LoginKhachHang {
 		query.setParameter("pass", password);
 		List<TaiKhoanKhachHang> list = query.list();
 		
-		if (list.size() == 0) {
+		if (list.size() == 0 ) {	// khong ton tai tai khoan
 			return "formLogin/loginKH";
 		}
-		
+		if (list.get(0).getTrangThaiTaiKhoanKhachHang().getMaTrangThai().equals('0')) { // trang thai tai khoan tam ngung
+			return "formLogin/loginKH";
+		}
+		model.addAttribute("usernameKH", username);
 		return "viewClient/index";
 	}
 }
