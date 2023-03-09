@@ -2,12 +2,15 @@ package com.Entity;
 
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,7 +39,8 @@ public class DichVu {
 	@ManyToOne
 	@JoinColumn(name = "MAQUANLI")
 	private NhanVien quanLiTaoDichVu;
-	
+	@OneToMany(mappedBy = "dichVu", fetch = FetchType.EAGER)
+	private List<ThayDoiGiaDichVu> giaDichVus;
 	
 	
 	public DichVu() {
@@ -94,6 +98,12 @@ public class DichVu {
 	}
 	public void setQuanLiTaoDichVu(NhanVien quanLiTaoDichVu) {
 		this.quanLiTaoDichVu = quanLiTaoDichVu;
+	}
+	public List<ThayDoiGiaDichVu> getGiaDichVus() {
+		return giaDichVus;
+	}
+	public void setGiaDichVus(List<ThayDoiGiaDichVu> giaDichVus) {
+		this.giaDichVus = giaDichVus;
 	}
 	
 }

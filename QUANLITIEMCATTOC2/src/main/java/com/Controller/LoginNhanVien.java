@@ -1,6 +1,5 @@
 package com.Controller;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.Entity.KhachHang;
 import com.Entity.NhanVien;
+import com.Entity.SanPham;
 import com.Entity.TaiKhoanKhachHang;
 import com.Entity.TaiKhoanNhanVien;
 
@@ -52,14 +52,27 @@ public class LoginNhanVien {
 		TaiKhoanNhanVien taiKhoan = (TaiKhoanNhanVien) query.list().get(0); 
 		
 		if (taiKhoan.getQuyen().getMaQuyen().equals("Q01")) { // quan li
+			List<SanPham> products = getProducts();
+			model.addAttribute("products", products);
 			model.addAttribute("usernameManager",username);
-			return "viewManager/index";
+//			return "viewManager/index";
+			return "viewManager/dashboard";
 		}
 		else if (taiKhoan.getQuyen().getMaQuyen().equals("Q02")){	// nhan vien
 			return "viewEmployee/index";
+	
 		}
-			
 		
 		return "formLogin/loginNV";
+	
+	}
+	
+	
+	@ModelAttribute("products")
+	public List<SanPham> getProducts(){
+		Session session = factory.getCurrentSession();
+		Query query = session.createQuery("from SanPham");
+		List<SanPham> products = query.list();
+		return products;
 	}
 }

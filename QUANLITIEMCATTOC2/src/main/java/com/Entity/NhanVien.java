@@ -46,6 +46,8 @@ public class NhanVien {
 	private List<ThayDoiGiaSanPham> giaSanPhams;
 	@OneToMany(mappedBy = "quanLiTaoDichVu", fetch = FetchType.EAGER)
 	private List<DichVu> dichVus;
+	@OneToMany(mappedBy = "quanLiThayDoiGiaDichVu", fetch = FetchType.EAGER)
+	private List<ThayDoiGiaDichVu> giaDichVus;
 	public NhanVien() {
 	}
 	public NhanVien(String maNhanVien, String ho, String ten, String phai, Date ngaySinh, String diaChi,
@@ -137,6 +139,12 @@ public class NhanVien {
 	}
 	public void setDichVus(List<DichVu> dichVus) {
 		this.dichVus = dichVus;
+	}
+	public List<ThayDoiGiaDichVu> getGiaDichVus() {
+		return giaDichVus;
+	}
+	public void setGiaDichVus(List<ThayDoiGiaDichVu> giaDichVus) {
+		this.giaDichVus = giaDichVus;
 	}
 	
 	

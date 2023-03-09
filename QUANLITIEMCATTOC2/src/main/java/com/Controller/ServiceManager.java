@@ -1,8 +1,10 @@
 package com.Controller;
 
+import java.io.File;
 import java.sql.Time;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.Entity.DichVu;
 import com.Entity.LoaiDichVu;
@@ -31,13 +34,14 @@ import com.Entity.ThayDoiGiaSanPham;
 public class ServiceManager {
 	@Autowired
 	SessionFactory factory;
-	
+	@Autowired
+	ServletContext context;
 	@RequestMapping(value="index/{usernameManager}", method=RequestMethod.GET)
 	public String index(ModelMap model, @PathVariable("usernameManager") String usernameManager) {
 //		Session session = factory.getCurrentSession();
 		model.addAttribute("services", getServices());
 		model.addAttribute("usernameManager", usernameManager);
-		return "service/index";
+		return "viewManager/service/index";
 	}
 	
 	@RequestMapping(value="insert/{usernameManager}", method=RequestMethod.GET)
@@ -48,7 +52,7 @@ public class ServiceManager {
 		model.addAttribute("typeProducts", getTypeServices());
 		model.addAttribute("usernameManager", usernameManager);
 		model.addAttribute("manager", nv);
-		return "service/insert";
+		return "viewManager/service/insert";
 	}
 	
 	@RequestMapping(value="insert/{usernameManager}", method=RequestMethod.POST)
@@ -57,15 +61,19 @@ public class ServiceManager {
 			@RequestParam("tenDichVu") String tenDichVu,
 			@RequestParam("thoiGianThucHien") Time thoiGianThucHien,
 			@RequestParam("moTa") String moTa,
-			@RequestParam("hinhAnh") String hinhAnh,
+			@RequestParam("hinhAnh") MultipartFile hinhAnh,
 			@RequestParam("loaiDichVu") String maLoaiDichVu
 //			@RequestParam("gia") String gia
 			) {
+		System.out.print(thoiGianThucHien);
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		DichVu service = new DichVu();
 		ThayDoiGiaSanPham giaSanPham = new ThayDoiGiaSanPham();
+		
 		try {
+			String hinhAnhPath = context.getRealPath("/image/service/" + hinhAnh.getOriginalFilename());
+			hinhAnh.transferTo(new File(hinhAnhPath));
 			NhanVien quanLi = (NhanVien)session.get(NhanVien.class, usernameManager);
 			LoaiDichVu loaiDV = (LoaiDichVu)session.get(LoaiDichVu.class, maLoaiDichVu);
 			
@@ -73,7 +81,7 @@ public class ServiceManager {
 			service.setTenDichVu(tenDichVu);
 			service.setMaDichVu(maDichVu);
 			service.setThoiGianThucHien(thoiGianThucHien);
-			service.setHinhAnh(hinhAnh);
+			service.setHinhAnh(hinhAnh.getOriginalFilename());
 			service.setMoTa(moTa);
 			
 			service.setQuanLiTaoDichVu(quanLi);
@@ -93,8 +101,9 @@ public class ServiceManager {
 			session.close();
 		}
 		System.out.println(service);
+		
 		model.addAttribute("services", getServices());
-		return "service/index";
+		return "viewManager/service/index";
 	}
 	
 	// tra ve cac loai dich vu trong view insert 1 dich vu
@@ -133,6 +142,6 @@ public class ServiceManager {
 			session.close();
 		}
 		model.addAttribute("services", getServices());
-		return "service/index";
+		return "viewManager/service/index";
 	}
 }

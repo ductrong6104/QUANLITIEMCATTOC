@@ -74,7 +74,7 @@
 		                    <h2 class="neon-text-blue"></h2>
 		                    <h3>${j.tenSanPham }</h3>
 		                    <img
-		                      src="image/1.jpg"
+		                      src="image/product/${j.hinhAnh }"
 		                      class="comestic-item-img"
 		                      alt="IMAGE"
 		                    />
@@ -91,7 +91,7 @@
 			                    <h2 class="neon-text-blue"></h2>
 			                    <h3>${j.tenSanPham }</h3>
 			                    <img
-			                      src="image/1.jpg"
+			                      src="image/product/${j.hinhAnh }"
 			                      class="comestic-item-img"
 			                      alt="IMAGE"
 			                    />

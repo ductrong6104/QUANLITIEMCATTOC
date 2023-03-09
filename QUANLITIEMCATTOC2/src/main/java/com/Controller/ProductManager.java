@@ -1,5 +1,6 @@
 package com.Controller;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.Entity.LoaiSanPham;
 import com.Entity.NhanVien;
@@ -33,10 +36,11 @@ import com.Entity.ThayDoiGiaSanPham;
 @Controller
 @Transactional
 @RequestMapping("product/")
-public class Product {
+public class ProductManager {
 	@Autowired
 	SessionFactory factory;
-	
+	@Autowired
+	ServletContext context;
 //	@RequestMapping("type")	// xem san pham thuoc loai san pham
 //	public String typeProduct(ModelMap model) {
 //		Session session = factory.getCurrentSession();
@@ -53,12 +57,12 @@ public class Product {
 	public String index(ModelMap model, @PathVariable("usernameManager") String usernameManager) {
 //		Session session = factory.getCurrentSession();
 		List<SanPham> sanPhams = getProducts();
-		for (SanPham i: sanPhams) {
-			System.out.println(i.getGiaSanPhams().get(0).getGia());
-		}
+//		for (SanPham i: sanPhams) {
+//			System.out.println(i.getGiaSanPhams().get(0).getGia());
+//		}
 		model.addAttribute("products", getProducts());
 		model.addAttribute("usernameManager", usernameManager);
-		return "product/index";
+		return "viewManager/product/index";
 	}
 	
 	@RequestMapping(value="insert/{usernameManager}", method=RequestMethod.GET)
@@ -71,7 +75,7 @@ public class Product {
 		model.addAttribute("typeProducts", getTypeProducts());
 		model.addAttribute("usernameManager", usernameManager);
 		model.addAttribute("manager", nv);
-		return "product/insert";
+		return "viewManager/product/insert";
 	}
 	
 	@RequestMapping(value="insert/{usernameManager}", method=RequestMethod.POST)
@@ -79,22 +83,29 @@ public class Product {
 			,@RequestParam("maSanPham") String maSanPham, 
 			@RequestParam("tenSanPham") String tenSanPham,
 			@RequestParam("moTa") String moTa,
-			@RequestParam("hinhAnh") String hinhAnh,
+			@RequestParam("hinhAnh") MultipartFile hinhAnh,
 			@RequestParam("loaiSanPham") String maLoaiSanPham
 //			@RequestParam("gia") String gia
 			) {
+		
+		
+		
+		
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		SanPham product = new SanPham();
 		ThayDoiGiaSanPham giaSanPham = new ThayDoiGiaSanPham();
 		try {
+			// xu li file anh
+			String hinhAnhPath = context.getRealPath("/image/product/" + hinhAnh.getOriginalFilename());
+			hinhAnh.transferTo(new File(hinhAnhPath));
 			NhanVien quanLi = (NhanVien)session.get(NhanVien.class, usernameManager);
 			LoaiSanPham loaiSP = (LoaiSanPham)session.get(LoaiSanPham.class, maLoaiSanPham);
 			
 //			chua them chuc nang upload file anh
 			product.setTenSanPham(tenSanPham);
 			product.setMaSanPham(maSanPham);
-			product.setHinhAnh(hinhAnh);
+			product.setHinhAnh(hinhAnh.getOriginalFilename());
 			product.setMoTa(moTa);
 			product.setQuanLiTaoSanPham(quanLi);
 			product.setLoaiSanPham(loaiSP);
@@ -131,20 +142,13 @@ public class Product {
 		}
 		System.out.println(product);
 		model.addAttribute("products", getProducts());
-		return "product/index";
+		return "viewManager/product/index";
 	}
 	
 	// tra ve cac loai san pham trong view insert 1 san pham
 	@ModelAttribute("typeProducts")
 	public List<LoaiSanPham>  getTypeProducts(){
-//		Map<LoaiSanPham, String> result = new HashMap<>();
-//		Session session = factory.getCurrentSession();
-//		Query query = session.createQuery("from LoaiSanPham");
-//		List<LoaiSanPham> typeProducts = query.list();
-//		for (LoaiSanPham i: typeProducts) {
-//			result.put(i, i.getTenLoaiSanPham());
-//		}
-//		return result;
+
 		Session session = factory.getCurrentSession();
 		Query query = session.createQuery("from LoaiSanPham");
 		List<LoaiSanPham> typeProducts = query.list();
@@ -198,7 +202,7 @@ public class Product {
 			session.close();
 		}
 		model.addAttribute("products", getProducts());
-		return "product/index";
+		return "viewManager/product/index";
 	}
 	
 }

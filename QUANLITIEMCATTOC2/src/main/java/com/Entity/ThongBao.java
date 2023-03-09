@@ -22,14 +22,12 @@ public class ThongBao {
 	private String maThongBao;
 	@Column(name = "TIEUDE")
 	private String tieuDe;
-	@Column(name = "NOIDUNGRUTGON")
-	private String noiDungRutGon;
+	@Column(name = "NOIDUNG")
+	private String noiDung;
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	@Column(name = "NGAYGIODANG")
 	private Date ngayGioDang;
-	@Column(name = "XEMCHITIET")
-	private String xemChiTiet;
 	@ManyToOne
 	@JoinColumn(name = "MALOAITHONGBAO")
 	private LoaiThongBao loaiThongBao;
@@ -41,13 +39,12 @@ public class ThongBao {
 	public ThongBao() {
 	}
 	
-	public ThongBao(String maThongBao, String tieuDe, String noiDungRutGon, Date ngayGioDang, String xemChiTiet,
+	public ThongBao(String maThongBao, String tieuDe, String noiDung, Date ngayGioDang, String xemChiTiet,
 			LoaiThongBao loaiThongBao, NhanVien quanLiTB) {
 		this.maThongBao = maThongBao;
 		this.tieuDe = tieuDe;
-		this.noiDungRutGon = noiDungRutGon;
+		this.noiDung = noiDung;
 		this.ngayGioDang = ngayGioDang;
-		this.xemChiTiet = xemChiTiet;
 		this.loaiThongBao = loaiThongBao;
 		this.quanLiTB = quanLiTB;
 	}
@@ -64,11 +61,11 @@ public class ThongBao {
 	public void setTieuDe(String tieuDe) {
 		this.tieuDe = tieuDe;
 	}
-	public String getNoiDungRutGon() {
-		return noiDungRutGon;
+	public String getNoiDung() {
+		return noiDung;
 	}
-	public void setNoiDungRutGon(String noiDungRutGon) {
-		this.noiDungRutGon = noiDungRutGon;
+	public void setNoiDung(String noiDung) {
+		this.noiDung = noiDung;
 	}
 	public Date getNgayGioDang() {
 		return ngayGioDang;
@@ -76,12 +73,7 @@ public class ThongBao {
 	public void setNgayGioDang(Date ngayGioDang) {
 		this.ngayGioDang = ngayGioDang;
 	}
-	public String getXemChiTiet() {
-		return xemChiTiet;
-	}
-	public void setXemChiTiet(String xemChiTiet) {
-		this.xemChiTiet = xemChiTiet;
-	}
+	
 	public NhanVien getQuanLiTB() {
 		return quanLiTB;
 	}
