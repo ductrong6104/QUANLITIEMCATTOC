@@ -1,0 +1,170 @@
+@charset "UTF-8";
+.neon-infinite {
+    color: #fff !important;
+    animation: pulsate 0.11s ease-in-out infinite alternate;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #5271ff,
+      0 0 82px #5271ff,
+      0 0 92px #5271ff,
+      0 0 102px #5271ff,
+      0 0 151px #5271ff;
+  }
+
+  @keyframes pulsate {
+    
+    100% {
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px #5271ff,
+        0 0 80px #5271ff,
+        0 0 90px #5271ff,
+        0 0 100px #5271ff,
+        0 0 150px #5271ff;
+    
+    }
+    
+    0% {
+  
+      text-shadow:
+      0 0 4px #fff,
+      0 0 10px #fff,
+      0 0 18px #fff,
+      0 0 38px #5271ff,
+      0 0 73px #5271ff,
+      0 0 80px #5271ff,
+      0 0 94px #5271ff,
+      0 0 140px #5271ff;
+  
+  }
+}
+
+.neon-red {
+    color: #fff !important;
+    text-shadow:
+    0 0 7px #ef233c,
+    0 0 10px #ef233c,
+    0 0 21px #ef233c,
+    0 0 42px #ef233c,
+    0 0 82px #ef233c,
+    0 0 92px #ef233c,
+    0 0 102px #ef233c,
+    0 0 151px #ef233c;
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #ef233c,
+              0 0 0.8rem #ef233c,
+              0 0 2.8rem #ef233c,
+              inset 0 0 1.3rem #ef233c;
+}
+
+.neon-white {
+  color: #fff !important;
+  text-shadow:
+  0 0 7px #ffffff,
+  0 0 10px #ffffff,
+  0 0 21px #ffffff,
+  0 0 42px #ffffff,
+  0 0 82px #ffffff,
+  0 0 92px #ffffff,
+  0 0 102px #ffffff,
+  0 0 151px #ffffff;
+  box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem #ffffff,
+            0 0 0.8rem #ffffff,
+            0 0 2.8rem #ffffff,
+            inset 0 0 1.3rem #ffffff;
+}
+  
+.neon-blue {
+    color: #fff !important;
+    background-color: transparent;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #5271ff,
+      0 0 82px #5271ff,
+      0 0 92px #5271ff,
+      0 0 102px #5271ff,
+      0 0 151px #5271ff;
+    box-shadow: 0 0 .2rem #fff,
+      0 0 .2rem #fff,
+      0 0 2rem #5271ff,
+      0 0 0.8rem #5271ff,
+      0 0 2.8rem #5271ff,
+      inset 0 0 1.3rem #5271ff;
+}
+.neon-green {
+    color: #fff !important;
+    background-color: transparent;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #3c763d,
+      0 0 82px #3c763d,
+      0 0 92px #3c763d,
+      0 0 102px #3c763d,
+      0 0 151px #3c763d;
+    box-shadow: 0 0 .2rem #fff,
+      0 0 .2rem #fff,
+      0 0 2rem #3c763d,
+      0 0 0.8rem #3c763d,
+      0 0 2.8rem #3c763d,
+      inset 0 0 1.3rem #3c763d;
+}
+
+.neon-text-white {
+  color: #fff !important;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff;
+}
+
+.neon-text-blue {
+    color: #fff !important;
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #5271ff,
+    0 0 82px #5271ff,
+    0 0 92px #5271ff,
+    0 0 102px #5271ff,
+    0 0 151px #5271ff;
+  }
+
+.neon-blue-link {
+  color: #fff !important;
+  transition: 0.5s;
+  background-color: transparent;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #5271ff,
+    0 0 82px #5271ff,
+    0 0 92px #5271ff,
+    0 0 102px #5271ff,
+    0 0 151px #5271ff;
+}
+
+.neon-blue-link:hover {
+  color: #fff !important;
+  font-size: large;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 20px #fff,
+    0 0 21px #fff,
+    0 0 42px #5271ff,
+    0 0 82px #5271ff,
+    0 0 92px #5271ff,
+    0 0 102px #5271ff,
+    0 0 151px #5271ff;
+}

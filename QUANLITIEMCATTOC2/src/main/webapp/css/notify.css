@@ -1,0 +1,97 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../image/bg.png");
+    width: 100vw;
+    height: 100vh;
+}
+
+table {
+	width:100%;
+    border: 1px solid #fff;
+}
+
+td form button.button {
+	padding:0.25em;margin:0.25em;
+	background:none;
+	color:blue;
+}
+
+.fa-light {
+    color: #fff;
+}
+
+.section-noti {
+    width: 90%;
+    margin-top: 4rem;
+    padding: 4.8rem 0 12.8rem;
+}
+
+.btn-list {
+    width: 30rem;
+    height: 2rem;
+    padding-left: 2rem;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.crud-button {
+    width: 5rem;
+    height: 3rem;
+    margin: 1rem;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+main {
+    height: 60rem;
+}
+
+#noti {
+    height: 100%;
+}
+
+#noti-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: auto; 
+    margin-right: auto;
+}
+#noti-table > thead {
+    height: 4rem;
+    font-size: large;
+}
+#noti-table > thead td, #noti-table > thead th {
+    border: 1px solid #ddd;
+    padding: 16px 12px 12px 16px;
+}
+
+#noti-table tr:hover {
+    box-shadow: 0 0 .2rem #fff,
+                0 0 .2rem #fff,
+                0 0 1rem #fff,
+                inset 0 0 1rem #fff;
+}
+
+#noti-table th {
+    text-align: left;
+    color: white;
+}
+#noti-table > tbody td {
+    padding: 12px 12px 12px 12px;
+    text-align: left;
+    color: white;
+    border-right: 1px solid #fff;
+    font-size: medium;
+}

@@ -1,6 +1,6 @@
 package com.Entity;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +18,7 @@ public class LoaiTaiKhoan {
 	@Column(name = "TENLOAI")
 	private String tenLoai;
 	@OneToMany(mappedBy = "loaiTaiKhoan", fetch = FetchType.EAGER)
-	private Collection<TaiKhoanKhachHang> taiKhoanKhachHangs;
+	private List<TaiKhoanKhachHang> taiKhoanKhachHangs;
 	public LoaiTaiKhoan() {}
 	public LoaiTaiKhoan(String maLoai, String tenLoai) {
 		this.maLoai = maLoai;
@@ -36,10 +36,10 @@ public class LoaiTaiKhoan {
 	public void setTenLoai(String tenLoai) {
 		this.tenLoai = tenLoai;
 	}
-	public Collection<TaiKhoanKhachHang> getTaiKhoanKhachHangs() {
+	public List<TaiKhoanKhachHang> getTaiKhoanKhachHangs() {
 		return taiKhoanKhachHangs;
 	}
-	public void setTaiKhoanKhachHangs(Collection<TaiKhoanKhachHang> taiKhoanKhachHangs) {
+	public void setTaiKhoanKhachHangs(List<TaiKhoanKhachHang> taiKhoanKhachHangs) {
 		this.taiKhoanKhachHangs = taiKhoanKhachHangs;
 	}
 	

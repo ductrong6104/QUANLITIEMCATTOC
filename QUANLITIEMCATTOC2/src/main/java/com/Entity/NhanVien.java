@@ -1,6 +1,6 @@
 package com.Entity;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -39,8 +39,13 @@ public class NhanVien {
 	@Column(name = "HINH")
 	private String hinh;
 	@OneToMany(mappedBy = "quanLiTB", fetch = FetchType.EAGER)
-	private Collection<ThongBao> thongBaos;
-	
+	private List<ThongBao> thongBaos;
+	@OneToMany(mappedBy = "quanLiTaoSanPham", fetch = FetchType.EAGER)
+	private List<SanPham> sanPhams;
+	@OneToMany(mappedBy = "quanLiThayDoiGiaSanPham", fetch = FetchType.EAGER)
+	private List<ThayDoiGiaSanPham> giaSanPhams;
+	@OneToMany(mappedBy = "quanLiTaoDichVu", fetch = FetchType.EAGER)
+	private List<DichVu> dichVus;
 	public NhanVien() {
 	}
 	public NhanVien(String maNhanVien, String ho, String ten, String phai, Date ngaySinh, String diaChi,
@@ -109,11 +114,29 @@ public class NhanVien {
 	public void setHinh(String hinh) {
 		this.hinh = hinh;
 	}
-	public Collection<ThongBao> getThongBaos() {
+	public List<ThongBao> getThongBaos() {
 		return thongBaos;
 	}
-	public void setThongBaos(Collection<ThongBao> thongBaos) {
+	public void setThongBaos(List<ThongBao> thongBaos) {
 		this.thongBaos = thongBaos;
+	}
+	public List<SanPham> getSanPhams() {
+		return sanPhams;
+	}
+	public void setSanPhams(List<SanPham> sanPhams) {
+		this.sanPhams = sanPhams;
+	}
+	public List<ThayDoiGiaSanPham> getGiaSanPhams() {
+		return giaSanPhams;
+	}
+	public void setGiaSanPhams(List<ThayDoiGiaSanPham> giaSanPhams) {
+		this.giaSanPhams = giaSanPhams;
+	}
+	public List<DichVu> getDichVus() {
+		return dichVus;
+	}
+	public void setDichVus(List<DichVu> dichVus) {
+		this.dichVus = dichVus;
 	}
 	
 	

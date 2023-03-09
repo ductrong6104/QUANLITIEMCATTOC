@@ -104,7 +104,7 @@
 	        <li><a href=""><i class="fa fa-home" aria-hidden="true"></i> Trang Chủ</a></li>
 	        <li><a role ="button" href="inforPersonal/client/${usernameKH }.htm"><i class="fa fa-info" aria-hidden="true"></i> Thông Tin Cá Nhân</a></li>
 	        <li><a href=""><i class="fa fa-scissors" aria-hidden="true"></i> Dịch Vụ</a></li>
-	        <li><a href=""><i class="fa fa-product-hunt" aria-hidden="true"></i> Sản phẩm</a></li>
+	        <li><a role ="button" href=""><i class="fa fa-product-hunt" aria-hidden="true"></i> Sản phẩm</a></li>
 	        <li><a href=""><i class="fa fa-location-arrow" aria-hidden="true"></i> Địa Chỉ</a></li>
 	        <li><a role="button" href="notification/index.htm"><i class="fa fa-bell" aria-hidden="true"></i> Thông Báo</a></li>
 	    </ul>

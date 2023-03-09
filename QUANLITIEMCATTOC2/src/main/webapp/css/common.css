@@ -1,0 +1,280 @@
+@charset "UTF-8";
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .neon-infinite {
+    color: #fff;
+    font-size: 3rem;
+    animation: pulsate 0.11s ease-in-out infinite alternate;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #5271ff,
+      0 0 82px #5271ff,
+      0 0 92px #5271ff,
+      0 0 102px #5271ff,
+      0 0 151px #5271ff;
+  }
+
+  @keyframes pulsate {
+    
+    100% {
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px #5271ff,
+        0 0 80px #5271ff,
+        0 0 90px #5271ff,
+        0 0 100px #5271ff,
+        0 0 150px #5271ff;
+    
+    }
+    
+    0% {
+  
+      text-shadow:
+      0 0 4px #fff,
+      0 0 10px #fff,
+      0 0 18px #fff,
+      0 0 38px #5271ff,
+      0 0 73px #5271ff,
+      0 0 80px #5271ff,
+      0 0 94px #5271ff,
+      0 0 140px #5271ff;
+  
+  }
+}
+
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    font-family: "Rubik", sans-serif;
+    line-height: 1;
+    font-weight: 400;
+    color: #fff;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .neon-text {
+    color: #fff;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff;
+  }
+
+  .neon-border {
+    text-shadow:
+    0 0 7px #ef233c,
+    0 0 10px #ef233c,
+    0 0 21px #ef233c,
+    0 0 42px #ef233c,
+    0 0 82px #ef233c,
+    0 0 92px #ef233c,
+    0 0 102px #ef233c,
+    0 0 151px #ef233c;
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #ef233c,
+              0 0 0.8rem #ef233c,
+              0 0 2.8rem #ef233c,
+              inset 0 0 1.3rem #ef233c;
+  }
+  .container {
+    width: 90%;
+    /* padding: 0 3.2rem; */
+    margin: 0 auto;
+  }
+  
+  .grid {
+    display: grid;
+    column-gap: 6.4rem;
+    row-gap: 9.6rem;
+  }
+
+  .grid:not(:last-child) {
+    margin-bottom: 9.6rem;
+  }
+  
+  .grid--2-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid--3-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .grid--4-cols {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .grid--5-cols {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .grid--center-v {
+    align-items: center;
+  }
+  
+  .heading-primary,
+  .heading-secondary,
+  .heading-tertiary {
+    font-weight: 500;
+    color: #fff;
+  }
+  
+  .heading-primary {
+    font-size: 8rem;
+    line-height: 1.05;
+    margin-bottom: 3.2rem;
+    font-family: "Yellowtail", sans-serif;
+  }
+  
+  .heading-secondary {
+    font-size: 4.4rem;
+    line-height: 1.2;
+    margin-bottom: 9.6rem;
+  }
+  
+  .heading-tertiary {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 3.2rem;
+  }
+  
+  .subheading {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+    letter-spacing: 0.75px;
+  }
+  
+  .btn,
+  .btn:link,
+  .btn:visited {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 1.6rem 3.2rem;
+    border-radius: 9px;
+    cursor: pointer;
+    font-family: inherit;
+    border: 2px solid #fff;
+    transition: all 0.3s;
+  }
+  
+  .btn--full:link,
+  .btn--full:visited {
+    color: #fff;
+  }
+  
+  .btn--full:hover,
+  .btn--full:active {
+  }
+  
+  .btn--outline:link,
+  .btn--outline:visited {
+    color: #fff;
+  }
+  
+  .btn--outline:hover,
+  .btn--outline:active {
+    text-shadow:
+    0 0 7px #ffffff,
+    0 0 10px #ffffff,
+    0 0 21px #ffffff,
+    0 0 42px #ffffff,
+    0 0 82px #ffffff,
+    0 0 92px #ffffff,
+    0 0 102px #ffffff,
+    0 0 151px #ffffff;
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #ffffff,
+              0 0 0.8rem #ffffff,
+              0 0 2.8rem #ffffff,
+              inset 0 0 1.3rem #ffffff;
+  }
+  
+  .btn--form {
+    color: #fdf2e9;
+    background-color: transparent;
+    align-self: end;
+    padding: 1.2rem;
+  }
+  
+  .btn--form:hover {
+    background-color: #fff;
+    color: #fff;
+  }
+  
+  .link:link,
+  .link:visited {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 2px;
+    transition: all 0.3s;
+  }
+  
+  .link:hover,
+  .link:active {
+    color: #fff;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  
+  .list-item {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+  
+  .list-icon {
+    width: 3rem;
+    height: 3rem;
+    color: #000;
+  }
+  
+  *:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.8rem #000;
+  }
+  
+  .margin-right-sm {
+    margin-right: 1.6rem !important;
+  }
+  
+  .margin-bottom-md {
+    margin-bottom: 4.8rem !important;
+  }
+  
+  .center-text {
+    text-align: center;
+  }
+  
+  strong {
+    font-weight: 500;
+  }

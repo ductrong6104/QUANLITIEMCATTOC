@@ -58,15 +58,15 @@ public class InforPersonal {
 			t.commit();
 			model.addAttribute("message", "Chỉnh sửa thành công!");
 			model.addAttribute("khachHang", khachHangCapNhat);
-			session.close();
-			return "viewClient/inforClient";
 		} catch (Exception e) {
 			// TODO: handle exception
 			t.rollback();
 			model.addAttribute("message", "Chỉnh sửa thất bại!");
 			model.addAttribute("khachHang", khachHang);
-			session.close();
-			return "viewClient/inforClient";
 		} 
+		finally {
+			session.close();
+		}
+		return "viewClient/inforClient";
 	}
 }

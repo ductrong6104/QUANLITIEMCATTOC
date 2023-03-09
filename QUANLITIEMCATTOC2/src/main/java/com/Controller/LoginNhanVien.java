@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.Entity.KhachHang;
+import com.Entity.NhanVien;
 import com.Entity.TaiKhoanKhachHang;
 import com.Entity.TaiKhoanNhanVien;
 
@@ -40,25 +41,25 @@ public class LoginNhanVien {
 		String password = request.getParameter("password");
 		Session session = factory.getCurrentSession();
 		
-		Query query = session.createQuery("from TaiKhoanNhanVien");
-
-		List<TaiKhoanNhanVien> list = query.list();
-		for (TaiKhoanNhanVien i :list) {
-			
-			if (i.getUserNameNhanVien().equals(username) && i.getPassWord().equals(password)) {
-				if (i.getQuyen().getMaQuyen().equals("Q01")) { // quan li
-					model.addAttribute("taiKhoanNhanVien", i);
-					return "viewManager/index";
-				}
-				else if (i.getQuyen().getMaQuyen().equals("Q02")){	// nhan vien
-					System.out.println(3);
-					return "viewEmployee/index";
-				}
-			}
-			
+		Query query = session.createQuery("from TaiKhoanNhanVien tk where tk.userNameNhanVien= :user and tk.passWord= :pass");
+		query.setParameter("user", username);
+		query.setParameter("pass", password);
+		
+		List<TaiKhoanNhanVien> taiKhoans = query.list();
+		if (taiKhoans.size() == 0) {
+			return "formLogin/loginNV";
 		}
+		TaiKhoanNhanVien taiKhoan = (TaiKhoanNhanVien) query.list().get(0); 
+		
+		if (taiKhoan.getQuyen().getMaQuyen().equals("Q01")) { // quan li
+			model.addAttribute("usernameManager",username);
+			return "viewManager/index";
+		}
+		else if (taiKhoan.getQuyen().getMaQuyen().equals("Q02")){	// nhan vien
+			return "viewEmployee/index";
+		}
+			
 		
 		return "formLogin/loginNV";
 	}
-	
 }

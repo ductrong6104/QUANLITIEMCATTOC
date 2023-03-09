@@ -31,22 +31,27 @@ public class ThongBao {
 	@Column(name = "XEMCHITIET")
 	private String xemChiTiet;
 	@ManyToOne
+	@JoinColumn(name = "MALOAITHONGBAO")
+	private LoaiThongBao loaiThongBao;
+	@ManyToOne
 	@JoinColumn(name = "MAQUANLI")
 	private NhanVien quanLiTB;
 	
 	
-	
 	public ThongBao() {
 	}
+	
 	public ThongBao(String maThongBao, String tieuDe, String noiDungRutGon, Date ngayGioDang, String xemChiTiet,
-			NhanVien quanLiTB) {
+			LoaiThongBao loaiThongBao, NhanVien quanLiTB) {
 		this.maThongBao = maThongBao;
 		this.tieuDe = tieuDe;
 		this.noiDungRutGon = noiDungRutGon;
 		this.ngayGioDang = ngayGioDang;
 		this.xemChiTiet = xemChiTiet;
+		this.loaiThongBao = loaiThongBao;
 		this.quanLiTB = quanLiTB;
 	}
+
 	public String getMaThongBao() {
 		return maThongBao;
 	}
@@ -82,6 +87,14 @@ public class ThongBao {
 	}
 	public void setQuanLiTB(NhanVien quanLiTB) {
 		this.quanLiTB = quanLiTB;
+	}
+
+	public LoaiThongBao getLoaiThongBao() {
+		return loaiThongBao;
+	}
+
+	public void setLoaiThongBao(LoaiThongBao loaiThongBao) {
+		this.loaiThongBao = loaiThongBao;
 	}
 	
 	

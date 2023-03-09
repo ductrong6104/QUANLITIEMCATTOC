@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.Entity.TaiKhoanKhachHang;
+import com.Entity.ThongBao;
 
 @Controller
 @Transactional
@@ -23,7 +24,8 @@ public class LoginKhachHang {
 	SessionFactory factory;
 	@RequestMapping(value="loginKH", method=RequestMethod.GET)
 	public String login() {
-		return "formLogin/loginKH";
+//		return "formLogin/loginKH";
+		return "viewClient/formLogin/loginHieu";
 	}
 	
 	@RequestMapping(value="loginKH", method=RequestMethod.POST)
@@ -38,12 +40,19 @@ public class LoginKhachHang {
 		List<TaiKhoanKhachHang> list = query.list();
 		
 		if (list.size() == 0 ) {	// khong ton tai tai khoan
-			return "formLogin/loginKH";
+//			return "formLogin/loginKH";
+			return "formLogin/loginHieu";
 		}
 		if (list.get(0).getTrangThaiTaiKhoanKhachHang().getMaTrangThai().equals('0')) { // trang thai tai khoan tam ngung
-			return "formLogin/loginKH";
+//			return "formLogin/loginKH";
+			return "formLogin/loginHieu";
 		}
+		
+		// lua chon cac thong bao khach hang xem duoc
+		Query query1 = session.createQuery("from ThongBao tb where tb.loaiThongBao.maLoaiThongBao = 'LTB02' or tb.loaiThongBao.maLoaiThongBao = 'LTB03' ");
+		List<ThongBao> notifys = query1.list();
+		model.addAttribute("notifys", notifys);
 		model.addAttribute("usernameKH", username);
-		return "viewClient/index";
+		return "viewClient/notification/notify";
 	}
 }

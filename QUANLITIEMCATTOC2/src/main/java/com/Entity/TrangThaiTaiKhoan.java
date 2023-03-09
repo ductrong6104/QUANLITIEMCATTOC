@@ -1,6 +1,6 @@
 package com.Entity;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,9 +19,9 @@ public class TrangThaiTaiKhoan {
 	private String tenTrangThai;
 	
 	@OneToMany(mappedBy = "trangThaiTaiKhoanNhanVien", fetch = FetchType.EAGER)
-	private Collection<TaiKhoanNhanVien> taiKhoanNhanViens;
+	private List<TaiKhoanNhanVien> taiKhoanNhanViens;
 	@OneToMany(mappedBy = "trangThaiTaiKhoanKhachHang", fetch = FetchType.EAGER)
-	private Collection<TaiKhoanKhachHang> taiKhoanKhachHangs;
+	private List<TaiKhoanKhachHang> taiKhoanKhachHangs;
 	
 	
 	public TrangThaiTaiKhoan() {}
@@ -41,16 +41,16 @@ public class TrangThaiTaiKhoan {
 	public void setTenTrangThai(String tenTrangThai) {
 		this.tenTrangThai = tenTrangThai;
 	}
-	public Collection<TaiKhoanNhanVien> getTaiKhoanNhanViens() {
+	public List<TaiKhoanNhanVien> getTaiKhoanNhanViens() {
 		return taiKhoanNhanViens;
 	}
-	public void setTaiKhoanNhanViens(Collection<TaiKhoanNhanVien> taiKhoanNhanViens) {
+	public void setTaiKhoanNhanViens(List<TaiKhoanNhanVien> taiKhoanNhanViens) {
 		this.taiKhoanNhanViens = taiKhoanNhanViens;
 	}
-	public Collection<TaiKhoanKhachHang> getTaiKhoanKhachHangs() {
+	public List<TaiKhoanKhachHang> getTaiKhoanKhachHangs() {
 		return taiKhoanKhachHangs;
 	}
-	public void setTaiKhoanKhachHangs(Collection<TaiKhoanKhachHang> taiKhoanKhachHangs) {
+	public void setTaiKhoanKhachHangs(List<TaiKhoanKhachHang> taiKhoanKhachHangs) {
 		this.taiKhoanKhachHangs = taiKhoanKhachHangs;
 	}
 	
