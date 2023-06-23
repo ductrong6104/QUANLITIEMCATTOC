@@ -11,6 +11,8 @@ import javax.persistence.Table;
 @Table(name = "TAIKHOAN_NHANVIEN")
 public class TaiKhoanNhanVien {
 	@Id
+	@Column(name = "MATAIKHOANNHANVIEN")
+	private String maTaiKhoanNhanVien;
 	@Column(name = "USERNAME_NHANVIEN")
 	private String userNameNhanVien;
 	@Column(name = "PASS_WORD")
@@ -27,12 +29,19 @@ public class TaiKhoanNhanVien {
 	public TaiKhoanNhanVien() {
 	}
 	
-	public TaiKhoanNhanVien(String userNameNhanVien, String passWord, TrangThaiTaiKhoan trangThaiTaiKhoanNhanVien) {
+	
+	
+	public TaiKhoanNhanVien(String maTaiKhoanNhanVien, String userNameNhanVien, String passWord,
+			TrangThaiTaiKhoan trangThaiTaiKhoanNhanVien, Quyen quyen) {
+		this.maTaiKhoanNhanVien = maTaiKhoanNhanVien;
 		this.userNameNhanVien = userNameNhanVien;
 		this.passWord = passWord;
 		this.trangThaiTaiKhoanNhanVien = trangThaiTaiKhoanNhanVien;
+		this.quyen = quyen;
 	}
-	
+
+
+
 	public String getUserNameNhanVien() {
 		return userNameNhanVien;
 	}
@@ -59,4 +68,18 @@ public class TaiKhoanNhanVien {
 	public void setQuyen(Quyen quyen) {
 		this.quyen = quyen;
 	}
+
+
+
+	public String getMaTaiKhoanNhanVien() {
+		return maTaiKhoanNhanVien;
+	}
+
+
+
+	public void setMaTaiKhoanNhanVien(String maTaiKhoanNhanVien) {
+		this.maTaiKhoanNhanVien = maTaiKhoanNhanVien;
+	}
+	
+	
 }

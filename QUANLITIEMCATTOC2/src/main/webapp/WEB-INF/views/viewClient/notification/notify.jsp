@@ -12,7 +12,7 @@
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+	
 	<header class="header">
         <a href="#">
           <img class="logo" alt="Barber logo" src="image/2.jpg" />
@@ -20,11 +20,11 @@
         <nav class="main-nav">
           <ul class="main-nav-list">
           	<li><a role="button" class="main-nav-link neon-text" href="#">HOME</a></li>
-            <li><a class="neon-infinite" href="#">THÔNG BÁO</a></li>
-            <li><a class="main-nav-link neon-text" href="#">ĐẶT LỊCH</a></li>
-            <li><a role="button" class="main-nav-link neon-text" href="serviceClient/index/${usernameKH}.htm">DỊCH VỤ</a></li>
-            <li><a role="button" class="main-nav-link neon-text" href="productClient/index/${usernameKH}.htm">SẢN PHẨM</a></li>
-            <li><a class="main-nav-link nav-cta neon-border" href="loginKH.htm">Đăng xuất</a></li>
+            <li><a class="neon-infinite" href="client/notify.htm">THÔNG BÁO</a></li>
+            <li><a class="main-nav-link neon-text" href="client/serviceClient/booking.htm">ĐẶT LỊCH</a></li>
+            <li><a role="button" class="main-nav-link neon-text" href="client/serviceClient/index/${usernameKH}.htm">DỊCH VỤ</a></li>
+            <li><a role="button" class="main-nav-link neon-text" href="client/productClient/index/${usernameKH}.htm">SẢN PHẨM</a></li>
+            <li><a class="main-nav-link nav-cta neon-border" href="client/loginKH.htm">Đăng xuất</a></li>
           </ul>
         </nav>
     </header>

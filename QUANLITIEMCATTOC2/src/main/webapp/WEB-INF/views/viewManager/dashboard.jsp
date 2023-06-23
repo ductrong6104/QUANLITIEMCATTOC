@@ -26,7 +26,7 @@
                <ul class="navbar-nav">
            
                    <li class="d-flex px-3">
-                       <a href="#" class="nav-link active py-0">
+                       <a href="product/index/${usernameManager }.htm" class="nav-link active py-0">
                            <span class="me-2"><i class="bi bi-person-fill-gear fw-bolder fs-4"></i></span>
                            <span class="fs-4 fw-bolder">Quản lí</span>
                        </a>

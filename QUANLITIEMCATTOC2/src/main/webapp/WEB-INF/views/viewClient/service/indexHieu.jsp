@@ -1,59 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
         <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="f" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Dịch vụ</title>
-	<base href = "${pageContext.servletContext.contextPath }/">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <base href = "${pageContext.servletContext.contextPath }/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<link href='https://fonts.googleapis.com/css?family=Yellowtail:400' rel='stylesheet' type='text/css'>
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 	<link rel="stylesheet" href="css/neon.css" />
     <link rel="stylesheet" href="css/service.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 </head>
-<body>
-<div class="container-fluid">
-    <header class="p-3 text-white">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <img width="40" height="40" class="d-inline-block align-top" alt="Omnifood logo" src="image/2.jpg" />
-          <h1 style="margin-left: 1rem; font-family: 'Yellowtail', 'sans-serif';" class="heading-primary neon-infinite">
-            Barber Shop
-          </h1>
-        </a>
-        <ul style="margin-left: 3rem;" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a role="button" class="nav-link px-2 text-white" href="#">HOME</a></li>
-          <li><a role="button" class="nav-link px-2 text-white" href="notification/index/${usernameKH}.htm">THÔNG BÁO</a></li>
-          <li><a role="button" class="nav-link px-2 text-white" href="#">ĐẶT LỊCH</a></li>
-          <li><a role="button" class="nav-link px-2 neon-blue-link" href="serviceClient/index/${usernameKH}.htm">DỊCH VỤ</a></li>
-          <li><a role="button" class="nav-link px-2 text-white" href="productClient/index/${usernameKH}.htm">SẢN PHẨM</a></li>
-        </ul>
+<style>
+    i{
+    	color: red;
+    }
+    </style>
 
-        <div class="text-end">
-          <a role="button" class="btn btn-outline me-2 neon-blue">PROFILE</a>
-          <a role="button" class="btn btn-outline me-2 neon-red" href="loginKH.htm">ĐĂNG XUẤT</a>
-        </div>
-      </div>    
-    </header>
-    <template>
-      <div class="card">
-        <div class="content">
-          <h2 class="neon-text-blue">01</h2>
-          <h3>Búa</h3>
-          <img
-            src="image/2.jpg"
-            class="comestic-item-img"
-            alt="IMAGE"
-          />
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptate, minus dolores aut unde totam, libero odit laborum eum cupiditate similique, culpa deleniti. Earum itaque voluptates dolore perferendis, ullam quos?</p>
-          <a href="#" class="neon-blue">Mua</a>
-        </div>
-      </div>
-    </template>
+<body>
+    <div class="container-fluid">
+        <header class="p-3 text-white">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <img width="40" height="40" class="d-inline-block align-top" alt="Omnifood logo" src="image/2.jpg" />
+              <h1 style="margin-left: 1rem; font-family: 'Yellowtail', 'sans-serif';" class="heading-primary neon-infinite">
+                Barber Shop
+              </h1>
+            </a>
+            <ul style="margin-left: 3rem;" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a id="home" role="button" class="nav-link px-2 text-white" href="#" onclick="changeClass(this)">HOME</a></li>
+              <li><a id ="thongBao" role="button" class="nav-link px-2 text-white" href="client/notify.htm">THÔNG BÁO</a></li>
+              <li><a id ="datLich" role="button" class="nav-link px-2 text-white" href="client/serviceClient/booking.htm" >ĐẶT LỊCH</a></li>
+              <li><a id = "dichVu" role="button" class="nav-link px-2 text-white" href="client/serviceClient/index/${usernameKH}.htm" >DỊCH VỤ</a></li>
+              <li><a id ="sanPham" role="button" class="nav-link px-2 text-white" href="client/productClient/index/${usernameKH}.htm" >SẢN PHẨM</a></li>
+            </ul>
+    
+            <div class="text-end">
+              <a role="button" class="btn btn-outline me-2 neon-blue">PROFILE</a>
+              <a role="button" class="btn btn-outline me-2 neon-red" href="client/loginKH.htm">ĐĂNG XUẤT</a>
+            </div>
+          </div>    
+        </header>
+
+ 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     	
       <div class="carousel-indicators">
@@ -80,7 +83,7 @@
 			                      alt="IMAGE"
 			                    />
 			                    <p>${j.moTa }</p>
-			                    <a href="#" class="neon-blue">Mua</a>
+			                    <a href="serviceClient/booking.htm" class="neon-blue">Đặt lịch ngay</a>
 			                  </div>
 			                </div>
                 		</c:forEach>
@@ -97,7 +100,7 @@
 			                      alt="IMAGE"
 			                    />
 			                    <p>${j.moTa }</p>
-			                    <a href="#" class="neon-blue">Mua</a>
+			                    <a href="#" class="neon-blue">Đặt lịch ngay</a>
 			                  </div>
 			                </div>
                 		</c:forEach>

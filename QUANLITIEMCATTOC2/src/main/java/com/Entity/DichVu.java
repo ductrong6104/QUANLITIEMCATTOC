@@ -1,6 +1,7 @@
 package com.Entity;
 
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -33,30 +34,29 @@ public class DichVu {
 	private String moTa;
 	@Column(name = "HINHANH")
 	private String hinhAnh;
+	@Column(name = "GIA")
+	private BigDecimal gia;
 	@ManyToOne
 	@JoinColumn(name = "MALOAIDICHVU")
 	private LoaiDichVu loaiDichVu;
-	@ManyToOne
-	@JoinColumn(name = "MAQUANLI")
-	private NhanVien quanLiTaoDichVu;
-	@OneToMany(mappedBy = "dichVu", fetch = FetchType.EAGER)
-	private List<ThayDoiGiaDichVu> giaDichVus;
 	
 	
 	public DichVu() {
 		super();
 	}
-	public DichVu(String maDichVu, String tenDichVu, Date thoiGianThucHien, String moTa, String hinhAnh,
-			LoaiDichVu loaiDichVu, NhanVien quanLiTaoDichVu) {
+	
+	public DichVu(String maDichVu, String tenDichVu, Date thoiGianThucHien, String moTa, String hinhAnh, BigDecimal gia,
+			LoaiDichVu loaiDichVu) {
 		super();
 		this.maDichVu = maDichVu;
 		this.tenDichVu = tenDichVu;
 		this.thoiGianThucHien = thoiGianThucHien;
 		this.moTa = moTa;
 		this.hinhAnh = hinhAnh;
+		this.gia = gia;
 		this.loaiDichVu = loaiDichVu;
-		this.quanLiTaoDichVu = quanLiTaoDichVu;
 	}
+
 	public String getMaDichVu() {
 		return maDichVu;
 	}
@@ -93,17 +93,17 @@ public class DichVu {
 	public void setLoaiDichVu(LoaiDichVu loaiDichVu) {
 		this.loaiDichVu = loaiDichVu;
 	}
-	public NhanVien getQuanLiTaoDichVu() {
-		return quanLiTaoDichVu;
+	public BigDecimal getGia() {
+		return gia;
 	}
-	public void setQuanLiTaoDichVu(NhanVien quanLiTaoDichVu) {
-		this.quanLiTaoDichVu = quanLiTaoDichVu;
+	public void setGia(BigDecimal gia) {
+		this.gia = gia;
 	}
-	public List<ThayDoiGiaDichVu> getGiaDichVus() {
-		return giaDichVus;
+	@Override
+	public String toString() {
+		return "DichVu [maDichVu=" + maDichVu + ", tenDichVu=" + tenDichVu + ", thoiGianThucHien=" + thoiGianThucHien
+				+ ", moTa=" + moTa + ", hinhAnh=" + hinhAnh + ", gia=" + gia + ", loaiDichVu=" + loaiDichVu + "]";
 	}
-	public void setGiaDichVus(List<ThayDoiGiaDichVu> giaDichVus) {
-		this.giaDichVus = giaDichVus;
-	}
+	
 	
 }

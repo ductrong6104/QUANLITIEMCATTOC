@@ -42,5 +42,10 @@ public class LoaiTaiKhoan {
 	public void setTaiKhoanKhachHangs(List<TaiKhoanKhachHang> taiKhoanKhachHangs) {
 		this.taiKhoanKhachHangs = taiKhoanKhachHangs;
 	}
+	@Override
+	public String toString() {
+		return "LoaiTaiKhoan [maLoai=" + maLoai + ", tenLoai=" + tenLoai + ", taiKhoanKhachHangs=" + taiKhoanKhachHangs
+				+ "]";
+	}
 	
 }

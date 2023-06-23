@@ -51,7 +51,7 @@
                       </form>
                  
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                       <li class="nav-item"><a role="button">Đăng xuất</a><li>
+                       <li class="nav-item"><a role="button" href="loginNV.htm">Đăng xuất</a><li>
                 </ul> 
             </div>
             

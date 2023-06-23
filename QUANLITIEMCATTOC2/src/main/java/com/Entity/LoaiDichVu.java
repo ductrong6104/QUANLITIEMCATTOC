@@ -45,6 +45,11 @@ public class LoaiDichVu {
 	public void setDichVus(List<DichVu> dichVus) {
 		this.dichVus = dichVus;
 	}
+	@Override
+	public String toString() {
+		return "LoaiDichVu [maLoaiDichVu=" + maLoaiDichVu + ", tenLoaiDichVu=" + tenLoaiDichVu + ", dichVus=" + dichVus
+				+ "]";
+	}
 	
 	
 }

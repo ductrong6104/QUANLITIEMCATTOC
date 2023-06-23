@@ -2,6 +2,7 @@ package com.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,8 +13,10 @@ import javax.persistence.Table;
 @Table(name = "TAIKHOAN_KHACHHANG")
 public class TaiKhoanKhachHang {
 	@Id
-	@Column(name = "USERNAME_KHACHHANG")
-	private String userNameKhachHang;
+	@Column(name = "MATAIKHOANKHACHHANG")
+	private String maTaiKhoanKhachHang;
+	@Column(name = "SODIENTHOAI")
+	private String soDienThoai;
 	@Column(name = "PASS_WORD")
 	private String passWord;
 	@ManyToOne
@@ -27,19 +30,18 @@ public class TaiKhoanKhachHang {
 	public TaiKhoanKhachHang() {
 	}
 	
-	public TaiKhoanKhachHang(String userNameKhachHang, String passWord, TrangThaiTaiKhoan trangThaiTaiKhoanKhachHang,
-			LoaiTaiKhoan loaiTaiKhoan) {
-		this.userNameKhachHang = userNameKhachHang;
+	
+	public TaiKhoanKhachHang(String maTaiKhoanKhachHang, String soDienThoai, String passWord,
+			TrangThaiTaiKhoan trangThaiTaiKhoanKhachHang, LoaiTaiKhoan loaiTaiKhoan) {
+		
+		this.maTaiKhoanKhachHang = maTaiKhoanKhachHang;
+		this.soDienThoai = soDienThoai;
 		this.passWord = passWord;
 		this.trangThaiTaiKhoanKhachHang = trangThaiTaiKhoanKhachHang;
 		this.loaiTaiKhoan = loaiTaiKhoan;
 	}
-	public String getUserNameKhachHang() {
-		return userNameKhachHang;
-	}
-	public void setUserNameKhachHang(String userNameKhachHang) {
-		this.userNameKhachHang = userNameKhachHang;
-	}
+
+
 	public String getPassWord() {
 		return passWord;
 	}
@@ -57,6 +59,26 @@ public class TaiKhoanKhachHang {
 	}
 	public void setLoaiTaiKhoan(LoaiTaiKhoan loaiTaiKhoan) {
 		this.loaiTaiKhoan = loaiTaiKhoan;
+	}
+
+
+	public String getMaTaiKhoanKhachHang() {
+		return maTaiKhoanKhachHang;
+	}
+
+
+	public void setMaTaiKhoanKhachHang(String maTaiKhoanKhachHang) {
+		this.maTaiKhoanKhachHang = maTaiKhoanKhachHang;
+	}
+
+
+	public String getSoDienThoai() {
+		return soDienThoai;
+	}
+
+
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
 	}
 	
 	

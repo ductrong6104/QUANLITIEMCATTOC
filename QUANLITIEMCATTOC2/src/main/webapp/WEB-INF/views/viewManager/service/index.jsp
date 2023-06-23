@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 	<link rel="stylesheet" href="css/dashboard.css">
@@ -54,6 +55,39 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/viewManager/dashboard.jsp" />
+	<nav class="navbar navbar-expand bg-light py-0 fixed-top ct-navbar shadow">
+        <div class="container-fluid px-4"> 
+          
+               <!-- button sidebar-dashboard -->
+            <button class="navbar-toggler d-block d-lg-none me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar-dashboard" aria-controls="offcanvasExample">
+                  <i class="bi bi-three-dots" data-bs-target="#sidebar-dashboard"></i>
+            </button>
+            <!-- button sidebar-dashboard -->
+            
+            
+           
+           
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="d-flex my-3">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Search for..." aria-label="Search"/>
+                        <button class="btn" style="background-color:#4e73df !important" type="submit">
+                            <i class="bi bi-search fw-bolder text-white"></i>
+                        </button>
+                        </div>
+                      </form>
+                 
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                       <li class="nav-item"><a role="button" href="loginNV.htm">Đăng xuất</a><li>
+                </ul> 
+            </div>
+            
+            
+        </div>
+    </nav>
+    <div class="p-4 container-fluid" style="margin-top: 69.6px;background-color: #f7f8fb">
+    
+    <div class="container-fluid py-3 bg-white shadow-lg">
 	${message }
 	<table class="ct-navbar">
 		<thead>
@@ -77,18 +111,16 @@
 					<td>${s.moTa }</td>
 					<td>${s.loaiDichVu.tenLoaiDichVu }</td>
 					<td>
-						<c:choose>
-							<c:when test="${ s.giaDichVus.size() != 0}"><f:formatNumber value="${s.giaDichVus.get(0).gia }" type="currency"></f:formatNumber></c:when>
-							<c:when test="${ s.giaDichVus.size() == 0}">Chưa tạo giá</c:when>
-						</c:choose>
+							<f:formatNumber value="${s.gia }" type="currency"></f:formatNumber>
 					</td>
-					<td><a role="button" href="service/update/${s.maDichVu }.htm">Sửa</a></td>
-					<td><a role="button" href="service/delete/${s.maDichVu }.htm">Xóa</a></td>
+					<td><a role="button" href="service/update/${s.maDichVu }.htm"><i class="fa fa-pencil" aria-hidden="true"></i>Sửa</a></td>
+					<td><a role="button" href="service/delete/${s.maDichVu }.htm"><i class="fa fa-eraser" aria-hidden="true"></i>Xóa</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 		
 	</table>
-
+</div>
+</div>
 </body>
 </html>

@@ -19,16 +19,12 @@ public class LoaiSanPham {
 	private String maLoaiSanPham;
 	@Column(name = "TENLOAISANPHAM")
 	private String tenLoaiSanPham;
-	@ManyToOne
-	@JoinColumn(name = "MAQUANLI")
-	private NhanVien quanLiTaoLoaiSanPham;
 	@OneToMany(mappedBy = "loaiSanPham", fetch = FetchType.EAGER)
 	private List<SanPham> sanPhams;
 	
-	public LoaiSanPham(String maLoaiSanPham, String tenLoaiSanPham, NhanVien quanLiTaoLoaiSanPham) {
+	public LoaiSanPham(String maLoaiSanPham, String tenLoaiSanPham) {
 		this.maLoaiSanPham = maLoaiSanPham;
 		this.tenLoaiSanPham = tenLoaiSanPham;
-		this.quanLiTaoLoaiSanPham = quanLiTaoLoaiSanPham;
 	}
 	public LoaiSanPham() {
 	}
@@ -44,18 +40,17 @@ public class LoaiSanPham {
 	public void setTenLoaiSanPham(String tenLoaiSanPham) {
 		this.tenLoaiSanPham = tenLoaiSanPham;
 	}
-	public NhanVien getQuanLiTaoLoaiSanPham() {
-		return quanLiTaoLoaiSanPham;
-	}
-	public void setQuanLiTaoLoaiSanPham(NhanVien quanLiTaoLoaiSanPham) {
-		this.quanLiTaoLoaiSanPham = quanLiTaoLoaiSanPham;
-	}
+
 	public List<SanPham> getSanPhams() {
 		return sanPhams;
 	}
 	public void setSanPhams(List<SanPham> sanPhams) {
 		this.sanPhams = sanPhams;
 	}
-	
+	@Override
+	public String toString() {
+		return "LoaiSanPham [maLoaiSanPham=" + maLoaiSanPham + ", tenLoaiSanPham=" + tenLoaiSanPham + ", sanPhams="
+				+ sanPhams + "]";
+	}
 	
 }

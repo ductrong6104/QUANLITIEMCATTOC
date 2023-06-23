@@ -14,6 +14,8 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+
+
 @Entity
 @Table(name = "NHANVIEN")
 public class NhanVien {
@@ -40,14 +42,10 @@ public class NhanVien {
 	private String hinh;
 	@OneToMany(mappedBy = "quanLiTB", fetch = FetchType.EAGER)
 	private List<ThongBao> thongBaos;
-	@OneToMany(mappedBy = "quanLiTaoSanPham", fetch = FetchType.EAGER)
-	private List<SanPham> sanPhams;
-	@OneToMany(mappedBy = "quanLiThayDoiGiaSanPham", fetch = FetchType.EAGER)
-	private List<ThayDoiGiaSanPham> giaSanPhams;
-	@OneToMany(mappedBy = "quanLiTaoDichVu", fetch = FetchType.EAGER)
-	private List<DichVu> dichVus;
-	@OneToMany(mappedBy = "quanLiThayDoiGiaDichVu", fetch = FetchType.EAGER)
-	private List<ThayDoiGiaDichVu> giaDichVus;
+	@OneToMany(mappedBy = "nhanVienDuyet", fetch = FetchType.EAGER)
+	private List<PhieuDatHang> hangDuocDuyets;
+	@OneToMany(mappedBy = "nhanVienGiao", fetch = FetchType.EAGER)
+	private List<PhieuDatHang> hangDuocGiaos;
 	public NhanVien() {
 	}
 	public NhanVien(String maNhanVien, String ho, String ten, String phai, Date ngaySinh, String diaChi,
@@ -122,29 +120,25 @@ public class NhanVien {
 	public void setThongBaos(List<ThongBao> thongBaos) {
 		this.thongBaos = thongBaos;
 	}
-	public List<SanPham> getSanPhams() {
-		return sanPhams;
+	
+	public List<PhieuDatHang> getHangDuocDuyets() {
+		return hangDuocDuyets;
 	}
-	public void setSanPhams(List<SanPham> sanPhams) {
-		this.sanPhams = sanPhams;
+	public void setHangDuocDuyets(List<PhieuDatHang> hangDuocDuyets) {
+		this.hangDuocDuyets = hangDuocDuyets;
 	}
-	public List<ThayDoiGiaSanPham> getGiaSanPhams() {
-		return giaSanPhams;
+	public List<PhieuDatHang> getHangDuocGiaos() {
+		return hangDuocGiaos;
 	}
-	public void setGiaSanPhams(List<ThayDoiGiaSanPham> giaSanPhams) {
-		this.giaSanPhams = giaSanPhams;
+	public void setHangDuocGiaos(List<PhieuDatHang> hangDuocGiaos) {
+		this.hangDuocGiaos = hangDuocGiaos;
 	}
-	public List<DichVu> getDichVus() {
-		return dichVus;
-	}
-	public void setDichVus(List<DichVu> dichVus) {
-		this.dichVus = dichVus;
-	}
-	public List<ThayDoiGiaDichVu> getGiaDichVus() {
-		return giaDichVus;
-	}
-	public void setGiaDichVus(List<ThayDoiGiaDichVu> giaDichVus) {
-		this.giaDichVus = giaDichVus;
+	@Override
+	public String toString() {
+		return "NhanVien [maNhanVien=" + maNhanVien + ", ho=" + ho + ", ten=" + ten + ", phai=" + phai + ", ngaySinh="
+				+ ngaySinh + ", diaChi=" + diaChi + ", soDienThoai=" + soDienThoai + ", email=" + email + ", hinh="
+				+ hinh + ", thongBaos=" + thongBaos + ", hangDuocDuyets=" + hangDuocDuyets + ", hangDuocGiaos="
+				+ hangDuocGiaos + "]";
 	}
 	
 	

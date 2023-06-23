@@ -48,5 +48,11 @@ public class LoaiThongBao {
 	public void setThongBaos(List<ThongBao> thongBaos) {
 		this.thongBaos = thongBaos;
 	}
+
+	@Override
+	public String toString() {
+		return "LoaiThongBao [maLoaiThongBao=" + maLoaiThongBao + ", tenLoaiThongBao=" + tenLoaiThongBao
+				+ ", thongBaos=" + thongBaos + "]";
+	}
 	
 }

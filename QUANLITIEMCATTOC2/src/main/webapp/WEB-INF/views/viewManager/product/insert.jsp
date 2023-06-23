@@ -38,7 +38,7 @@
                       </form>
                  
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                       <li class="nav-item"><a role="button">Đăng xuất</a><li>
+                       <li class="nav-item"><a role="button" href="loginNV.htm">Đăng xuất</a><li>
                 </ul> 
             </div>
             
@@ -47,7 +47,7 @@
     </nav>
     
 
-     <main>
+<main>
         <div class="p-4 container-fluid" style="margin-top: 69.6px;background-color: #f7f8fb">
     
     <div class="container-fluid py-3 bg-white shadow-lg">
@@ -95,7 +95,7 @@
                 
                 <div class="mt-4"> 
                     <label for="exampleFormControlInput1" class="form-label">Giá tiền</label>
-                   <input type="email" class="form-control" id="exampleFormControlInput1">
+                   <input name="gia" type="number" class="form-control" id="exampleFormControlInput1">
                 </div>
                 
                 <div class="row mt-4">
@@ -149,8 +149,8 @@
         
     </div>
         </div>
-    </main>
 
+</main>
 
     <div class="py-3 ct-navbar text-sm text-center bg-white shaldow-lg">end</div>
 </body>

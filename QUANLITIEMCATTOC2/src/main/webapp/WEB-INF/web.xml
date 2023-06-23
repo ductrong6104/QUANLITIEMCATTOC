@@ -35,7 +35,7 @@
   </filter-mapping>
   <welcome-file-list>
  
-    <welcome-file>home.jsp</welcome-file>
+    <welcome-file>client/home.htm</welcome-file>
     
   </welcome-file-list>
 </web-app>
